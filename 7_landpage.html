@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PT Doa Ibu - Layanan Service Terpercaya</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            text-align: center;
+            padding: 20px 0;
+            color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            font-style: italic;
+            font-size: 1.1em;
+        }
+
+        nav {
+            background-color: palevioletred;
+            text-align: center;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: whitesmoke;
+            margin: 0 20px;
+            font-weight: 500;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+            color: #fff;
+            font-weight: bold;
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            min-height: 450px;
+            color: white;
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.5);
+            background: linear-gradient(rgba(255, 154, 158, 0.3), rgba(250, 208, 196, 0.3)),
+                        url(https://images.unsplash.com/photo-1602615576820-ea14cf3e476a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=870)
+                        no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            margin: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            color: palevioletred;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, palevioletred, pink);
+            border-radius: 2px;
+        }
+
+        .services {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        .service {
+            flex: 1;
+            min-width: 280px;
+            background: white;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+
+        .service:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .service-content {
+            padding: 25px;
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+        }
+
+        .service h3 {
+            color: palevioletred;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .service p {
+            color: #555;
+            font-size: 1.1em;
+        }
+
+        .about-content {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            font-size: 1.15em;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .contact-info h3 {
+            color: palevioletred;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .info-item {
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .info-item strong {
+            color: palevioletred;
+            font-size: 1.1em;
+            min-width: 100px;
+        }
+
+        form {
+            background: linear-gradient(135deg, #ffd7ba 0%, #ffc3a0 100%);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            color: palevioletred;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px 15px;
+            margin: 5px 0;
+            border: 2px solid #ffeaa7;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: palevioletred;
+            box-shadow: 0 0 10px rgba(219, 112, 147, 0.3);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        button {
+            background: linear-gradient(135deg, palevioletred, pink);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(219, 112, 147, 0.4);
+        }
+
+        button:active {
+            transform: translateY(-1px);
+        }
+
+        .success-message {
+            display: none;
+            background: #4CAF50;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            text-align: center;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        footer {
+            text-align: center;
+            background: linear-gradient(135deg, palevioletred, pink);
+            color: white;
+            padding: 20px 0;
+            margin-top: 50px;
+            font-size: 1.1em;
+        }
+
+        @media (max-width: 768px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .section-title {
+                font-size: 2em;
+            }
+
+            nav a {
+                margin: 0 10px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Selamat Datang di PT Doa Ibu</h1>
+        <p>Karena doa ibu, sepanjang jalan 🌟</p>
+    </header>
+
+    <nav>
+        <a href="#Beranda">Beranda</a>
+        <a href="#Tentang">Tentang Kami</a>
+        <a href="#Layanan">Layanan</a>
+        <a href="#Kontak">Kontak</a>
+    </nav>
+
+    <section class="hero" id="Beranda">
+        <h1>Layanan Service Terbaik untuk Anda</h1>
+    </section>
+
+    <section class="container" id="Layanan">
+        <h2 class="section-title">Layanan Kami</h2>
+        <div class="services">
+            <div class="service">
+                <h3>🖥️ Servis Komputer</h3>
+                <p>Komputer, laptop, printer & perangkat elektronik lainnya. Teknisi berpengalaman siap membantu Anda.</p>
+            </div>
+            <div class="service">
+                <h3>🧺 Servis Mesin Cuci</h3>
+                <p>Mesin cuci 1, 2 atau 3 tabung. Garansi service dan spare part original.</p>
+            </div>
+            <div class="service">
+                <h3>🏍️ Servis Motor</h3>
+                <p>Motor ICE, listrik dan semua jenis kendaraan. Service cepat dan berkualitas.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" id="Tentang">
+        <h2 class="section-title">Tentang Kami</h2>
+        <div class="about-content">
+            <p>PT Doa Ibu adalah perusahaan layanan service terpercaya yang telah berpengalaman lebih dari 10 tahun dalam memberikan solusi perawatan dan perbaikan berbagai perangkat elektronik dan kendaraan bermotor.</p>
+            <p>Dengan teknisi berpengalaman, peralatan lengkap dan modern, serta proses pengerjaan yang cepat dan teliti, kami siap menjaga performa perangkat dan kendaraan Anda tetap maksimal. Kepuasan pelanggan adalah prioritas utama kami.</p>
+        </div>
+    </section>
+
+    <section class="container" id="Kontak">
+        <h2 class="section-title">Hubungi Kami</h2>
+        
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h3>📍 Informasi Kontak</h3>
+                <div class="info-item">
+                    <strong>📞 Telepon:</strong>
+                    <span>+62 812-3456-7890</span>
+                </div>
+                <div class="info-item">
+                    <strong>📧 Email:</strong>
+                    <span>info@ptdoaibu.com</span>
+                </div>
+                <div class="info-item">
+                    <strong>🏢 Alamat:</strong>
+                    <span>Jl. Raya Kebayoran No. 123, Jakarta Selatan</span>
+                </div>
+                <div class="info-item">
+                    <strong>🕐 Jam Kerja:</strong>
+                    <span>Senin - Sabtu: 08:00 - 17:00</span>
+                </div>
+            </div>
+
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="nama">Nama Lengkap *</label>
+                    <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap Anda" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" placeholder="contoh@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="telepon">Nomor Telepon *</label>
+                    <input type="tel" id="telepon" name="telepon" placeholder="+62 812-xxxx-xxxx" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="layanan">Pilih Layanan *</label>
+                    <select id="layanan" name="layanan" required>
+                        <option value="">-- Pilih Layanan --</option>
+                        <option value="komputer">Servis Komputer</option>
+                        <option value="mesin-cuci">Servis Mesin Cuci</option>
+                        <option value="motor">Servis Motor</option>
+                        <option value="konsultasi">Konsultasi</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="pesan">Pesan / Keluhan *</label>
+                    <textarea id="pesan" name="pesan" rows="5" placeholder="Jelaskan kebutuhan atau masalah yang Anda alami..." required></textarea>
+                </div>
+
+                <button type="submit">📨 Kirim Pesan</button>
+
+                <div class="success-message" id="successMessage">
+                    ✅ Pesan Anda berhasil dikirim! Kami akan segera menghubungi Anda.
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>© Copyright 2024 PT Doa Ibu - All Rights Reserved</p>
+        <p>Karena doa ibu, sepanjang jalan 💖</p>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Ambil data form
+            const formData = {
+                nama: document.getElementById('nama').value,
+                email: document.getElementById('email').value,
+                telepon: document.getElementById('telepon').value,
+                layanan: document.getElementById('layanan').value,
+                pesan: document.getElementById('pesan').value
+            };
+
+            // Simulasi pengiriman (dalam aplikasi nyata, kirim ke server)
+            console.log('Data form:', formData);
+
+            // Tampilkan pesan sukses
+            const successMessage = document.getElementById('successMessage');
+            successMessage.style.display = 'block';
+
+            // Reset form
+            this.reset();
+
+            // Sembunyikan pesan sukses setelah 5 detik
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 5000);
+
+            // Scroll ke pesan sukses
+            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+
+        // Smooth scrolling untuk navigasi
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
